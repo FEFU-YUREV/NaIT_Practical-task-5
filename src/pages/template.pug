@@ -1,0 +1,22 @@
+//- src/pages/template.pug
+block variables
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title #{title}
+        //- Стили подключаются через Webpack, но если нужно вручную:
+        //- link(rel="stylesheet" href="style.css") 
+    
+    body
+        block nav
+        
+        block header
+        
+        block content
+
+        block footer
+            footer.footer
+                p © 2025 • Б9123-09.03.04(5) • Юрьев А.П.

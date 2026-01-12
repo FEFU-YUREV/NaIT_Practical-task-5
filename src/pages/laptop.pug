@@ -1,0 +1,42 @@
+//- src/pages/laptop.pug
+extends template
+
+include mixins.pug
+include data.pug
+
+append variables
+    - var title = laptopPage.title
+    -
+        var menuItems = [
+            { text: 'Главная', url: 'index.html', active: false },
+            { text: 'ROG Zephyrus', url: 'laptop.html', active: true },
+            { text: 'Сравнительная таблица', url: 'table.html', active: false }
+        ]
+
+block nav
+    nav.topnav
+        ul.topnav__list
+            each item in menuItems
+                li.topnav__item(class=item.active ? 'topnav__item--active' : '')
+                    a(href=item.url)= item.text
+
+block header
+    div.brandbar
+        div.brandbar__inner
+            span.brandbar__logo Лёгкие ноуты, тяжёлые аргументы
+            div.brandbar__search
+                input(type="text" placeholder="Поиск по сайту")
+                button(type="button") Найти
+
+block content
+    main.page
+        section.laptop
+            h1.laptop__title= laptopPage.title
+
+            div.laptop__gallery
+                each image in laptopPage.images
+                    +laptopImage(image)
+
+            div.laptop__content
+                each section in laptopPage.sections
+                    +laptopSection(section)

@@ -1,0 +1,70 @@
+extends template
+
+include mixins.pug
+include data.pug
+
+append variables
+    - var title = "Ноутбуки — Сравнение"
+    -
+        var menuItems = [
+            { text: 'Главная', url: 'index.html', active: false },
+            { text: 'ROG Zephyrus', url: 'laptop.html', active: false },
+            { text: 'Сравнительная таблица', url: '#', active: true }
+        ]
+    -
+        var graphX = [
+            { value: '1_1', id: 'manufacturer', text: 'Производитель' },
+            { value: '1_2', id: 'year', text: 'Год' },
+            { value: '1_3', id: 'model', text: 'Модель' }
+        ]
+        var graphY = [
+            { value: '2_1', id: 'max_price', text: 'Максимальная цена' },
+            { value: '2_2', id: 'min_price', text: 'Минимальная цена' },
+            { value: '2_3', id: 'performance_average', text: 'Средний балл производительности' }
+        ]
+
+    -
+        var sortOpts = ["Нет", "Бренд", "Модель", "CPU модель", "Ядра", "Потоки", "Буст (ГГц)", "RAM (ГБ)", "Хранилище (ГБ)", "GPU", "Экран (дюймы/разрешение/Гц)", "Вес (кг)", "Батарея (Вт⋅ч)", "Цена", "Балл производительности", "Год"]
+        
+        var sortLevels = [
+            { label: 'Первый уровень', options: sortOpts },
+            { label: 'Второй уровень', options: sortOpts },
+            { label: 'Третий уровень', options: sortOpts }
+        ]
+
+block nav
+    nav.topnav
+        ul.topnav__list
+            each item in menuItems
+                li.topnav__item(class=item.active ? 'topnav__item--active' : '')
+                    a(href=item.url)= item.text
+
+block header
+    div.brandbar
+        div.brandbar__inner
+            span.brandbar__logo Лёгкие ноуты, тяжёлые аргументы
+            div.brandbar__search
+                input(type="text" placeholder="Поиск по сайту")
+                button(type="button") Найти
+
+block content
+    //- ВАЖНО: Подключаем файлы ЗДЕСЬ, внутри блока content.
+    //- Это решает проблему "top level" (потому что мы внутри блока)
+    //- И решает проблему "undefined" (потому что переменные создаются прямо тут)
+    
+
+    main.page
+        h1 Сравнительная таблица ноутбуков
+
+        div.filters
+            +createGraph(graphX, graphY)
+            br
+            +createFilter()
+            br
+            +createSort(sortLevels)
+        
+        br
+        
+        div.table-container
+            //- Теперь переменные точно доступны
+            +createTable(tableHeaders, laptops)

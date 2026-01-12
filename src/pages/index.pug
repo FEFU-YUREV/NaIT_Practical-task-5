@@ -1,0 +1,60 @@
+//- src/pages/index.pug
+extends template
+
+include data.pug
+include mixins.pug
+
+block nav
+    nav.topnav
+        ul.topnav__list
+            each item in menuItems
+                li.topnav__item(class=item.active ? 'topnav__item--active' : '')
+                    a(href=item.url)= item.text
+
+block header
+    div.brandbar
+        div.brandbar__inner
+            span.brandbar__logo Лёгкие ноуты, тяжёлые аргументы
+            div.brandbar__search
+                input(type="text" placeholder="Поиск по сайту")
+                button(type="button") Найти
+
+block content
+    main.page
+        //- Галерея
+        div.gallery
+            //- Колонка 1 (Высокая)
+            div.column.column--tall
+                each img in galleryImages.col1
+                    div.cell
+                        if img.link
+                            a(href=img.link)
+                                img(src=img.src, alt=img.alt)
+                        else
+                            img(src=img.src, alt=img.alt)
+            
+            //- Колонка 2 (Средняя, 2 фото)
+            div.column.column--mid
+                each img in galleryImages.col2
+                    div.cell: img(src=img.src, alt=img.alt)
+
+            //- Колонка 3 (Средняя, 2 фото)
+            div.column.column--mid
+                each img in galleryImages.col3
+                    div.cell: img(src=img.src, alt=img.alt)
+
+            //- Колонка 4 (Высокая)
+            div.column.column--tall
+                each img in galleryImages.col4
+                    div.cell: img(src=img.src, alt=img.alt)
+
+        //- Сетка карточек (Grid)
+        div.cards.cards--top
+            each card in topCards
+                +productCard(card)
+
+        //- Нижний блок (Features)
+        div.features-row
+            +sideCard(featureLeft)
+            +mainFeature(featureMain)
+            +sideCard(featureRight)
