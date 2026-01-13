@@ -1,6 +1,3 @@
-//- src/pages/mixins.pug
-
-//- Миксин для обычной карточки
 mixin productCard(item)
     if item.mod == 'spacer'
         div.cards__spacer(aria-hidden="true")
@@ -10,14 +7,12 @@ mixin productCard(item)
             h3.card__title= item.title
             p.card__text= item.text
 
-//- Миксин для боковой карточки в нижнем блоке
 mixin sideCard(item)
     article.card.card--side
         img.card__pic(src=item.img, alt=item.title)
         h3.card__title= item.title
         p.card__text= item.text
 
-//- Миксин для большой центральной фичи
 mixin mainFeature(item)
     div.feature
         h2.feature__title= item.title
@@ -46,7 +41,6 @@ mixin createGraph(axisX, axisY)
                 br
         p: input(type="button" value="Построить")
 
-//- Универсальный миксин для Фильтра (сложная структура)
 mixin createFilter()
     details
         summary Фильтр
@@ -103,7 +97,6 @@ mixin createFilter()
                 input(type="text" name="year" id="year_max")
         p: input(type="button" value="Найти")
 
-//- Универсальный миксин для Сортировки
 mixin createSort(levels)
     details
         summary Сортировка
@@ -120,9 +113,7 @@ mixin createSort(levels)
                         input(type="checkbox" name=`sort_desc_${index+1}` id=`yes_or_no_${index+1}`)
             p: input(type="button" value="Сортировать")
 
-//- Универсальный миксин для Таблицы
 mixin createTable(headers, items)
-  //- Добавляем проверку, чтобы не было ошибки .length
   if headers && items
     table
       thead
@@ -137,12 +128,10 @@ mixin createTable(headers, items)
   else
     p Данные для таблицы не загружены
 
-//- Миксин для изображения на странице ноутбука
 mixin laptopImage(item)
     figure.laptop__figure
         img.laptop__image(src=item.src, alt=item.alt)
 
-//- Миксин для текстового блока на странице ноутбука
 mixin laptopSection(item)
     section.laptop__section
         h2.laptop__heading

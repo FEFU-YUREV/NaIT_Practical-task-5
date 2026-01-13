@@ -11,7 +11,7 @@ body
     color $color-text-main
     background $color-bg-body
 
-// --- Навигация ---
+// Навигация
 .topnav
     margin 0
     border-bottom 0
@@ -47,7 +47,7 @@ body
             color $color-text-dark
             cursor default
 
-// --- Брандбар (Header) ---
+// Header
 .brandbar
     background linear-gradient(180deg, $color-grad-brand-start, $color-grad-brand-end)
 
@@ -93,14 +93,14 @@ body
             &:hover
                 opacity 0.8
 
-// --- Основной контент ---
+// Основной контент
 .page
     width $width-page
     margin 16px auto
     padding 0 12px
     max-width none
 
-// --- Галерея (Flex) ---
+// Галерея
 .gallery
     display flex
 
@@ -134,7 +134,7 @@ body
     &:hover img
         transform scale(1.05)
 
-// --- Карточки (Grid) ---
+// Карточки (Grid)
 .cards
     margin 20px 0
 
@@ -199,7 +199,7 @@ body
     &--side
         font-size 14px
 
-// --- Features Row ---
+// Features
 .features-row
     margin 20px 0
     min-height 40vh
@@ -245,7 +245,7 @@ body
         &:hover
             text-decoration underline
 
-// --- Страница ноутбука ---
+// Страница ноутбука
 .laptop
     margin 10px 0 20px
 
@@ -308,14 +308,13 @@ body
         font-size 14px
         line-height 1.5
 
-// --- Footer ---
+// Footer
 .footer
     text-align center
     color $color-text-muted
     padding 18px 12px 26px
     font-size 14px
 
-// --- Media Queries (Адаптив) ---
 @media (max-width: $max-width-mobile)
 
     .brandbar__inner
@@ -379,10 +378,10 @@ body
         width 100%
         max-width 480px
 
-// --- Таблица ---
+// Таблица
 .table-container
     width 100%
-    overflow-x auto // Чтобы таблица скроллилась на мобильных
+    overflow-x auto
     margin-top 20px
 
 table
@@ -405,7 +404,6 @@ table
     tr:hover
         background #f1f1f1
 
-// Стили для деталей (summary) в фильтрах
 details
     margin-bottom 10px
     border 1px solid $color-border

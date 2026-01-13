@@ -48,11 +48,6 @@ block header
                 button(type="button") Найти
 
 block content
-    //- ВАЖНО: Подключаем файлы ЗДЕСЬ, внутри блока content.
-    //- Это решает проблему "top level" (потому что мы внутри блока)
-    //- И решает проблему "undefined" (потому что переменные создаются прямо тут)
-    
-
     main.page
         h1 Сравнительная таблица ноутбуков
 
@@ -66,5 +61,4 @@ block content
         br
         
         div.table-container
-            //- Теперь переменные точно доступны
             +createTable(tableHeaders, laptops)

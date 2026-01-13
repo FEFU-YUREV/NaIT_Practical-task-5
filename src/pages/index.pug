@@ -1,4 +1,3 @@
-//- src/pages/index.pug
 extends template
 
 include data.pug
@@ -21,9 +20,7 @@ block header
 
 block content
     main.page
-        //- Галерея
         div.gallery
-            //- Колонка 1 (Высокая)
             div.column.column--tall
                 each img in galleryImages.col1
                     div.cell
@@ -33,27 +30,22 @@ block content
                         else
                             img(src=img.src, alt=img.alt)
             
-            //- Колонка 2 (Средняя, 2 фото)
             div.column.column--mid
                 each img in galleryImages.col2
                     div.cell: img(src=img.src, alt=img.alt)
 
-            //- Колонка 3 (Средняя, 2 фото)
             div.column.column--mid
                 each img in galleryImages.col3
                     div.cell: img(src=img.src, alt=img.alt)
 
-            //- Колонка 4 (Высокая)
             div.column.column--tall
                 each img in galleryImages.col4
                     div.cell: img(src=img.src, alt=img.alt)
 
-        //- Сетка карточек (Grid)
         div.cards.cards--top
             each card in topCards
                 +productCard(card)
 
-        //- Нижний блок (Features)
         div.features-row
             +sideCard(featureLeft)
             +mainFeature(featureMain)

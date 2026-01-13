@@ -1,7 +1,6 @@
 block variables
     - var title = "Ноутбуки — главная"
     
-    //- Меню
     -
         var menuItems = [
             { text: 'Главная', url: '#', active: true },
@@ -9,8 +8,6 @@ block variables
             { text: 'Сравнительная таблица', url: 'table.html', active: false }
         ]
 
-    //- Галерея
-    //- Важно: используем require() и путь ../images/, так как мы находимся в папке pages
     -
         var galleryImages = {
             col1: [
@@ -29,7 +26,6 @@ block variables
             ]
         }
 
-    //- Верхние карточки (Grid)
     -
         var topCards = [
             { 
@@ -61,7 +57,6 @@ block variables
             }
         ]
 
-    //- Нижний блок (Features)
     -
         var featureLeft = {
             img: require('../images/Lenovo_ThinkPad_X1.jpg'),
@@ -79,7 +74,7 @@ block variables
     -
         var featureRight = {
             img: require('../images/ROG_Zephyrus_2.jpeg'),
-            title: 'Игровая линейка ROG Zephyrus',
+            title: 'Игровая линейка ROG',
             text: 'Тонкие и мощные модели для геймеров и создателей контента.'
         }
     
